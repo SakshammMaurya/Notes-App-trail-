@@ -47,7 +47,7 @@ class NoteViewModel(
            NoteEvent.SaveNote -> {
                val title = state.value.title
                val description = state.value.description
-               if(title.isBlank()|| description.isBlank()) return
+               if(title.isBlank()) return
 
                val note= Note(
                    title= title,

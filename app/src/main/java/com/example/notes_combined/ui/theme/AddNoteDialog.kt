@@ -1,5 +1,6 @@
 package com.example.notes_combined.ui.theme
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -34,7 +36,7 @@ fun AddNoteDialog(
                         onEvent(NoteEvent.setTitle(it))
                     },
                     placeholder = {
-                        Text(text = "title")
+                        Text(text = "Title")
                     }
                 )
 
@@ -44,7 +46,7 @@ fun AddNoteDialog(
                         onEvent(NoteEvent.setDescription(it))
                     },
                     placeholder = {
-                        Text(text = "description")
+                        Text(text = "Description")
                     }
                 )
 
@@ -58,18 +60,12 @@ fun AddNoteDialog(
                 contentAlignment = Alignment.CenterEnd){
                 Button(onClick = {
                     onEvent(NoteEvent.SaveNote)
-                }) {
+                },
+                    ) {
                     Text(text = "Save Note")
                 }
             }
         }
     )
-
-
-
-
-
-
-
 
 }
