@@ -97,18 +97,18 @@ fun SplashScreen(
 
             )),
             onClick ={
-                navController.navigate("AddNoteScreen")
-
+                navController.navigate("NotesScreen")
             }
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Image(
-            painter = painterResource(id = R.drawable.vc),
-            contentDescription = null,
-            alignment = Alignment.BottomCenter
-
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.vc),
+//            contentDescription = null,
+//            alignment = Alignment.BottomCenter,
+//            modifier = Modifier.size(80.dp)
+//
+//        )
 
 
     }

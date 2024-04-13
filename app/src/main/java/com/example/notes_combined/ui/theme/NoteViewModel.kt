@@ -70,7 +70,7 @@ class NoteViewModel(
            }
            is NoteEvent.setDescription -> {
                _state.update { it.copy(
-                   title= event.description
+                   description = event.description
 
                ) }
            }

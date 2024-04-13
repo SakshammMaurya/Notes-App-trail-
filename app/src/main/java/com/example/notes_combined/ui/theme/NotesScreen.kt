@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -66,42 +67,22 @@ Scaffold(
             )
         }
     },
-//    topBar = {
-//        Row(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .height(55.dp)
-//                .background(Color(0xFFD0BCFF))
-//                .padding(16.dp), verticalAlignment = Alignment.CenterVertically
-//        ) {
-//            Text(
-//                text = "Notes App",
-//                modifier = Modifier.weight(1f),
-//                color = Color.White,
-//                fontWeight = FontWeight.SemiBold
-//            )
-//            IconButton(onClick = { onEvent(NoteEvent.SortNotes(sortType =SortType.TITLE)) }) {
-//                Icon(
-//                    imageVector = Icons.Default.Menu, contentDescription = null,
-//                    tint = Color.White,
-//                    modifier = Modifier.size(35.dp)
-//                )
-//            }
-//
-//        }
-//    }
+
     topBar = {
         dropDown(text = "Notes App",
         content = {
                   Text(
                       text = "Sort",
+                      textAlign = TextAlign.Center,
+                      fontSize = 16.sp,
                       modifier=Modifier.clickable {
                           onEvent(NoteEvent.SortNotes(SortType.TITLE))
                       }
-                          .height(100.dp)
                           .fillMaxWidth()
+
                       )
-        }, onEvent =onEvent , state = NoteState() )
+        }, onEvent =onEvent , state = NoteState(),
+            )
     }
 ) {padding->
     if(state.isAddingNotes){
@@ -199,18 +180,22 @@ fun dropDown(
 
     Column(
         modifier=modifier.fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp)),
+        verticalArrangement = Arrangement.Center
     ){
          Row(
-             modifier=Modifier.fillMaxWidth(),
+             modifier=Modifier.fillMaxWidth().padding(8.dp),
              horizontalArrangement = Arrangement.SpaceBetween,
-             verticalAlignment = Alignment.CenterVertically
+             verticalAlignment = Alignment.CenterVertically,
+
          ){
              Text(text = text,
-                 color= Color.White,
-                 fontSize = 16.sp)
+                 color= Color.Black,
+                 fontSize = 18.sp,
+                 )
              Icon(imageVector = Icons.Default.ArrowDropDown,
                  contentDescription = "Sort Type",
-                 tint= Color.White,
+                 tint= Color.Black,
                  modifier = Modifier
                      .clickable {
                          isOpen = !isOpen
@@ -230,6 +215,8 @@ fun dropDown(
                     rotationX = rotateX.value
                 }
                 .alpha(alpha.value)
+                .height(40.dp)
+                .background(Color.Magenta)
 
         ){
             content()
